@@ -2,22 +2,30 @@ class ScriptsController < ApplicationController
   # investigate security issues
   protect_from_forgery with: :null_session
 
+  def index
+    @scripts = Script.all
+  end
+
   def show
     @script = Script.find(params[:id])
-    send_data @script.data, filename: @script.filename, type: @script.content_type
   end
 
   def create
-    return if params[:script].blank?
-    @script = Script.new
-    @script.uploaded_file = params[:script]
-
+    @script = Script.new(pdf_params)
     if @script.save
-      flash[:notice] = "Your script has been uploaded!"
-      redirect_to scripts_path
+      redirect_to @script
     else
-      flash[:error] = "There was a problem saving your script."
       render :new
     end
+  end
+
+  def new
+    @script = Script.new
+  end
+
+private
+
+  def pdf_params
+    params.require(:script).permit(:pdf)
   end
 end

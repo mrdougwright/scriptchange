@@ -1,2 +1,7 @@
 <h1>Scripts#show</h1>
-<p>Find me in app/views/scripts/show.html.erb</p>
+
+<%= @script.pdf_file_name %>
+
+<p>
+	<%= link_to "Download Script", @script.pdf.url, target: "_blank" %>
+</p>
