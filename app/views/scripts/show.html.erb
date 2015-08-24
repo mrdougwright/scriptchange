@@ -1,7 +1,9 @@
-<h1>Scripts#show</h1>
+<h2><%= @script.title %></h2>
 
-<%= @script.pdf_file_name %>
-
-<p>
-	<%= link_to "Download Script", @script.pdf.url, target: "_blank" %>
-</p>
+<div>
+  <p><%= @script.tagline %></p>
+  <p><%= @script.summary %></p>
+  <p>
+    <%= link_to "Download Script", @script.pdf.url, target: "_blank" %>
+  </p>
+</div>
