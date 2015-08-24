@@ -20,9 +20,6 @@ ActiveRecord::Schema.define(version: 20150824211046) do
     t.string   "title"
     t.text     "tagline"
     t.text     "summary"
-    t.string   "filename"
-    t.string   "content_type"
-    t.binary   "data"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "pdf_file_name"

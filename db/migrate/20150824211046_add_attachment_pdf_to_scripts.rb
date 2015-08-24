@@ -1,8 +1,6 @@
 class AddAttachmentPdfToScripts < ActiveRecord::Migration
   def self.up
-    change_table :scripts do |t|
-      t.attachment :pdf
-    end
+    add_attachment :scripts, :pdf
   end
 
   def self.down

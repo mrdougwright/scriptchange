@@ -4,9 +4,6 @@ class CreateScripts < ActiveRecord::Migration
       t.string :title
       t.text :tagline
       t.text :summary
-      t.string :filename
-      t.string :content_type
-      t.binary :data
 
       t.timestamps null: false
     end
