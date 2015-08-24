@@ -1,6 +1,4 @@
 class ScriptsController < ApplicationController
-  # investigate security issues
-  protect_from_forgery with: :null_session
 
   def index
     @scripts = Script.all

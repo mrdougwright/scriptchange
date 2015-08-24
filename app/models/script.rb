@@ -14,7 +14,10 @@ class Script < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug = self.title.downcase.gsub(/\W/, "-")
+    slug = title.downcase.gsub(/\W/, "-")
+    count = Script.pluck(:slug).select{|s| s == slug }.count
+    slug = "#{slug}-#{count}" if count >= 1
+    slug
   end
 
 end
