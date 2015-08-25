@@ -4,7 +4,7 @@ class Script < ActiveRecord::Base
   validates_presence_of :slug
 
   before_validation do
-    self.slug = self.set_slug if self.title_changed?
+    self.slug = self.set_slug
     self
   end
 
