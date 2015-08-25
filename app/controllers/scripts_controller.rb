@@ -1,4 +1,8 @@
 class ScriptsController < ApplicationController
+  include ApplicationHelper
+
+  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_script_author!, only: [:edit, :update]
 
   def index
     @scripts = Script.all
@@ -19,6 +23,16 @@ class ScriptsController < ApplicationController
 
   def new
     @script = Script.new
+  end
+
+  def edit
+    @script = Script.find_by_slug(params[:id])
+  end
+
+  def update
+    @script = Script.find_by_slug(params[:id])
+    @script.update!(pdf_params)
+    redirect_to @script
   end
 
 private
