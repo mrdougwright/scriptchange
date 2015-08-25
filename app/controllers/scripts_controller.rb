@@ -13,7 +13,7 @@ class ScriptsController < ApplicationController
   end
 
   def create
-    @script = Script.new(pdf_params)
+    @script = CreateScript.with_user(current_user, pdf_params)
     if @script.save
       redirect_to @script
     else
