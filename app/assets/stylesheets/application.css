@@ -14,15 +14,34 @@
  *= require_self
  */
 
+body a {
+  text-decoration: none;
+}
+
+table, th, td {
+  border: 1px solid #DCD2D2;
+  border-spacing: 0;
+}
+
 .nav_menu {
+  width: 100%;
   list-style: none;
-  display: flex;
+  display: inline-block;
+  background-color: rgba(127,144,139,0.16);
   padding: 5px 0;
   -webkit-padding-start: 0;
 }
 
 .nav_menu li {
-  display: block;
+  float: right;
   padding: 0 20px;
   text-decoration: none;
+}
+
+.container {
+  clear: both;
+}
+
+.script-table th, td {
+  padding: 15px;
 }
