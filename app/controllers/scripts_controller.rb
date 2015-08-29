@@ -38,6 +38,6 @@ class ScriptsController < ApplicationController
 private
 
   def pdf_params
-    params.require(:script).permit(:pdf, :title, :tagline, :summary)
+    params.require(:script).permit(:pdf, :title, :tagline, :summary, :genre)
   end
 end

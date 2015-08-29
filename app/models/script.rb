@@ -8,6 +8,11 @@ class Script < ActiveRecord::Base
     self
   end
 
+  has_many :authors
+
+  # http://www.filmsite.org/genres.html
+  Genres = %w(action adventure comedy crime drama epic horror musical sci-fi war western)
+
   def to_param
     # overwrite rails method to return slug for id
     slug
