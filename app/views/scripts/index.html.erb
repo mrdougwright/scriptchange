@@ -1,26 +1,4 @@
-<h1>Scripts</h1>
+<h1 class='center'>Scripts</h1>
 
-<table class="script-table">
-  <thead>
-    <th>Title</th>
-    <th>Writer(s)</th>
-    <th>Uploaded On</th>
-    <th>Genre</th>
-    <th>Views</th>
-  </thead>
-  <% @scripts.each do |script| %>
-    <tbody>
-      <tr>
-        <td><%= link_to script.title, script %></td>
-        <td>
-          <% script.authors.pluck(:name).each do |name| %>
-            <%= name %>
-          <% end %>
-        </td>
-        <td><%= Format::Date.simple(script.created_at) %></td>
-        <td><%= script.genre %></td>
-        <td>viewed...</td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
+<%= render 'scripts', scripts: @myscripts, header: 'My Scripts' %>
+<%= render 'scripts', scripts: @scripts, header: 'All Scripts' %>

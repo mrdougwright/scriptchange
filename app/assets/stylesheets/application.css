@@ -21,6 +21,7 @@ body a {
 table, th, td {
   border: 1px solid #DCD2D2;
   border-spacing: 0;
+  width: 80%;
 }
 
 .nav_menu {
@@ -44,4 +45,12 @@ table, th, td {
 
 .script-table th, td {
   padding: 15px;
+}
+
+
+.float-left{
+  float: left;
+}
+.center {
+  text-align: center;
 }
