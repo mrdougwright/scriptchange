@@ -3,7 +3,7 @@ class Script < ActiveRecord::Base
   validates_attachment_content_type :pdf, content_type: ["application/pdf","application/msword","text/plain"]
   validates_presence_of :slug
 
-  before_validation do
+  before_create do
     self.slug = self.set_slug
     self
   end
@@ -23,6 +23,11 @@ class Script < ActiveRecord::Base
     count = Script.pluck(:slug).select{|s| s == slug }.count
     slug = "#{slug}-#{count}" if count >= 1
     slug
+  end
+
+  def count_view
+    self.views += 1
+    self.save
   end
 
 end

@@ -11,6 +11,7 @@ class ScriptsController < ApplicationController
 
   def show
     @script = Script.find_by_slug(params[:id])
+    @script.count_view unless current_user.scripts.include? @script
   end
 
   def create

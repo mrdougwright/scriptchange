@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :name, :email
-  has_many :scripts
+  has_many :scripts, through: :authors
   has_many :authors
 end

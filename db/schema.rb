@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829160331) do
+ActiveRecord::Schema.define(version: 20150829203205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20150829160331) do
     t.string   "title"
     t.text     "tagline"
     t.text     "summary"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "pdf_file_name"
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
     t.string   "slug"
     t.string   "genre"
-    t.integer  "views"
+    t.integer  "views",            default: 0
   end
 
   add_index "scripts", ["slug"], name: "index_scripts_on_slug", using: :btree
