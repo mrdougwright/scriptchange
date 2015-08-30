@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :scripts
+  resources :stars
   post "scripts/create"
 
   devise_for :users

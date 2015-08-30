@@ -11,7 +11,7 @@
       <th>Uploaded On</th>
       <th>Genre</th>
       <th>Views</th>
-      <th>Favorites</th>
+      <th>Stars</th>
 
     </thead>
     <% scripts.each do |script| %>
@@ -26,7 +26,7 @@
           <td><%= Format::Date.simple(script.created_at) %></td>
           <td><%= script.genre %></td>
           <td><%= script.views %></td>
-          <td>favorites...</td>
+          <td><%= Star.where(script_id: script.id).count %></td>
         </tr>
       </tbody>
     <% end %>

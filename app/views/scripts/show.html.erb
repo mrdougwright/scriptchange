@@ -9,4 +9,13 @@
   <p>
     <%= link_to "Edit Script", edit_script_path(@script) if current_script_author?(@script) %>
   </p>
+  <p>
+    <%= link_to "Star this Script!", {
+      controller: :stars,
+      action: :create,
+      user_id: current_user.id,
+      script_id: @script.id},
+      method: :post unless current_user.starred_script?(@script.id)
+    %>
+  </p>
 </div>

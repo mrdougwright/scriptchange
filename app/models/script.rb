@@ -9,6 +9,7 @@ class Script < ActiveRecord::Base
   end
 
   has_many :authors
+  has_many :stars
 
   # http://www.filmsite.org/genres.html
   Genres = %w(action adventure comedy crime drama epic horror musical sci-fi war western)
