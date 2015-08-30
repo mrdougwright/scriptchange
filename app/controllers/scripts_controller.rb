@@ -2,7 +2,10 @@ class ScriptsController < ApplicationController
   include ApplicationHelper
 
   before_action :authenticate_user!
-  before_action :authenticate_script_author!, only: [:edit, :update]
+  before_action only: [:edit, :update] do
+    authenticate_script_author(params[:id])
+  end
+
 
   def index
     @myscripts = Script.where(id: current_user.authors.pluck(:script_id))
