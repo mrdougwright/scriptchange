@@ -18,4 +18,5 @@
       method: :post unless current_user.starred_script?(@script.id)
     %>
   </p>
+  <p><%= link_to "Back to Scripts", scripts_path %></p>
 </div>
