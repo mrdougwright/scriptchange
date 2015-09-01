@@ -3,11 +3,6 @@ class Script < ActiveRecord::Base
   validates_attachment_content_type :pdf, content_type: ["application/pdf","application/msword","text/plain"]
   validates_presence_of :slug
 
-  before_create do
-    self.slug = self.set_slug
-    self
-  end
-
   has_many :authors
   has_many :stars
 

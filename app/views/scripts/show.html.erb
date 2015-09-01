@@ -18,5 +18,6 @@
       method: :post unless current_user.starred_script?(@script.id)
     %>
   </p>
+  <p><%= link_to "Delete Script", script_path(@script), method: :delete if current_script_author?(@script) %></p>
   <p><%= link_to "Back to Scripts", scripts_path %></p>
 </div>

@@ -2,7 +2,8 @@ class ScriptsController < ApplicationController
   include ApplicationHelper
 
   before_action :authenticate_user!
-  before_action only: [:edit, :update] do
+  before_action :retrieve_script, only: [:show, :edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
     authenticate_script_author(params[:id])
   end
 
@@ -13,7 +14,6 @@ class ScriptsController < ApplicationController
   end
 
   def show
-    @script = Script.find_by_slug(params[:id])
     @script.count_view unless current_user.scripts.include? @script
   end
 
@@ -30,19 +30,24 @@ class ScriptsController < ApplicationController
     @script = Script.new
   end
 
-  def edit
-    @script = Script.find_by_slug(params[:id])
-  end
-
   def update
-    @script = Script.find_by_slug(params[:id])
     @script.update!(pdf_params)
     redirect_to @script
+  end
+
+  def destroy
+    @script.destroy
+    flash[:notice] = 'Script removed.'
+    redirect_to :root
   end
 
 private
 
   def pdf_params
     params.require(:script).permit(:pdf, :title, :tagline, :summary, :genre)
+  end
+
+  def retrieve_script
+    @script = Script.find_by_slug(params[:id])
   end
 end

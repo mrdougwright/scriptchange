@@ -1,6 +1,6 @@
 <h2><%= header %></h2>
 
-<% if scripts.nil? %>
+<% if scripts.blank? %>
   <h3>Upload a Script!</3>
   <%= link_to 'Upload my Script', new_script_path %>
 <% else %>
