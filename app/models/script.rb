@@ -26,4 +26,8 @@ class Script < ActiveRecord::Base
     self.save
   end
 
+  def uploaded_by?(user_id)
+    self.authors.pluck(:user_id).include? user_id
+  end
+
 end

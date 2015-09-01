@@ -15,7 +15,7 @@
       action: :create,
       user_id: current_user.id,
       script_id: @script.id},
-      method: :post unless current_user.starred_script?(@script.id)
+      method: :post unless @script.uploaded_by?(current_user.id) || current_user.starred_script?(@script.id)
     %>
   </p>
   <p><%= link_to "Delete Script", script_path(@script), method: :delete if current_script_author?(@script) %></p>
