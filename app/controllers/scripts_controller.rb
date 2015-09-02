@@ -10,6 +10,7 @@ class ScriptsController < ApplicationController
 
   def index
     @myscripts = Script.where(id: current_user.authors.pluck(:script_id))
+    @my_starred_scripts = Script.where(id: current_user.stars.pluck(:script_id)) if current_user
     @scripts = Script.all
   end
 

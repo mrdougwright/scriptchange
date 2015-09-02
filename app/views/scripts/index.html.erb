@@ -1,4 +1,12 @@
 <h1 class='center'>Scripts</h1>
 
-<%= render 'scripts', scripts: @myscripts, header: 'My Scripts' %>
+<% if @myscripts.blank? %>
+  <h3>Upload a Script!</3>
+  <%= link_to 'Upload my Script', new_script_path %>
+<% else %>
+  <%= render 'scripts', scripts: @myscripts, header: 'Uploaded Scripts' %>
+<% end %>
+
+<%= render 'scripts', scripts: @my_starred_scripts, header: 'Starred Scripts' if @my_starred_scripts %>
+
 <%= render 'scripts', scripts: @scripts, header: 'All Scripts' %>

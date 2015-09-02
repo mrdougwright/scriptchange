@@ -1,34 +1,29 @@
 <h2><%= header %></h2>
 
-<% if scripts.blank? %>
-  <h3>Upload a Script!</3>
-  <%= link_to 'Upload my Script', new_script_path %>
-<% else %>
-  <table class="script-table">
-    <thead>
-      <th>Title</th>
-      <th>Author(s)</th>
-      <th>Uploaded On</th>
-      <th>Genre</th>
-      <th>Views</th>
-      <th>Stars</th>
+<table class="script-table">
+  <thead>
+    <th>Title</th>
+    <th>Author(s)</th>
+    <th>Uploaded On</th>
+    <th>Genre</th>
+    <th>Views</th>
+    <th>Stars</th>
 
-    </thead>
-    <% scripts.each do |script| %>
-      <tbody>
-        <tr>
-          <td><%= link_to script.title, script %></td>
-          <td>
-            <% script.authors.pluck(:name).each do |name| %>
-              <%= name %>
-            <% end %>
-          </td>
-          <td><%= Format::Date.simple(script.created_at) %></td>
-          <td><%= script.genre %></td>
-          <td><%= script.views %></td>
-          <td><%= Star.where(script_id: script.id).count %></td>
-        </tr>
-      </tbody>
-    <% end %>
-  </table>
-<% end %>
+  </thead>
+  <% scripts.each do |script| %>
+    <tbody>
+      <tr>
+        <td><%= link_to script.title, script %></td>
+        <td>
+          <% script.authors.pluck(:name).each do |name| %>
+            <%= name %>
+          <% end %>
+        </td>
+        <td><%= Format::Date.simple(script.created_at) %></td>
+        <td><%= script.genre %></td>
+        <td><%= script.views %></td>
+        <td><%= Star.where(script_id: script.id).count %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
