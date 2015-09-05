@@ -8,6 +8,7 @@
     <th>Genre</th>
     <th>Views</th>
     <th>Stars</th>
+    <th>Ave Rating</th>
 
   </thead>
   <% scripts.each do |script| %>
@@ -23,6 +24,7 @@
         <td><%= script.genre %></td>
         <td><%= script.views %></td>
         <td><%= Star.where(script_id: script.id).count %></td>
+        <td><%= CalculateRatings.ave_rating(script.id) %></td>
       </tr>
     </tbody>
   <% end %>
