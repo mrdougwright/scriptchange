@@ -7,6 +7,6 @@
   <%= render 'scripts', scripts: @myscripts, header: 'Uploaded Scripts' %>
 <% end %>
 
-<%= render 'scripts', scripts: @my_starred_scripts, header: 'Starred Scripts' if @my_starred_scripts %>
+<%= render 'scripts', scripts: @my_starred_scripts, header: 'Starred Scripts' unless @my_starred_scripts.blank? %>
 
 <%= render 'scripts', scripts: @scripts, header: 'All Scripts' %>

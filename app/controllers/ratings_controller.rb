@@ -7,7 +7,8 @@ class RatingsController < ApplicationController
       flash[:notice] = 'Rating Saved!'
       redirect_to :back
     else
-      render :new
+      flash[:alert] = @rating.errors.full_messages.join(' ')
+      redirect_to :root
     end
   end
 
