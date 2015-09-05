@@ -15,16 +15,13 @@ class ScriptsController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
     @script.count_view unless current_user.scripts.include? @script
   end
 
   def create
     @script = CreateScript.with_user(current_user, pdf_params)
-    if @script.save
-      redirect_to @script
-    else
-      render :new
-    end
+    @script.save ? redirect_to(@script) : render(:new)
   end
 
   def new

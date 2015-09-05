@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  root to: "scripts#index"
+  devise_for :users
+
   resources :scripts
-  resources :stars
   post "scripts/create"
 
-  devise_for :users
-  root to: "scripts#index"
+  resources :stars
+  resources :ratings
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

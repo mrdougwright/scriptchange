@@ -4,6 +4,7 @@ class Script < ActiveRecord::Base
   validates_presence_of :slug
 
   has_many :authors
+  has_many :ratings
   has_many :stars
 
   # http://www.filmsite.org/genres.html

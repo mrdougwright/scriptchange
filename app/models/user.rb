@@ -7,9 +7,14 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email
   has_many :scripts, through: :authors
   has_many :authors
+  has_many :ratings
   has_many :stars
 
   def starred_script?(script_id)
     Star.where(user_id: self.id, script_id: script_id).any?
+  end
+
+  def rated_script?(script_id)
+    Rating.where(user_id: self.id, script_id: script_id).any?
   end
 end
