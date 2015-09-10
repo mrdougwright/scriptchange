@@ -10,7 +10,7 @@
     <%= link_to "Edit Script", edit_script_path(@script) if current_script_author?(@script) %>
   </p>
   <p>
-    <%= link_to "Star this Script!", {
+    <%= link_to "Mark as favorite", {
       controller: :stars,
       action: :create,
       user_id: current_user.id,
