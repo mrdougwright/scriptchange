@@ -1,0 +1,10 @@
+h1.home-title {
+  margin-top: 200px;
+}
+
+.tagline:hover:after{
+  border: 1px solid #fc0;
+  padding: 3px 6px;
+  background: #fffea1;
+  content: attr(data-title); 
+}

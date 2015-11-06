@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scriptchange</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Script Garden</title>
+  <%= stylesheet_link_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
