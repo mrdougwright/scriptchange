@@ -1,8 +1,22 @@
-<%= form_for @script, url: scripts_create_path, html: { multipart: true } do |form| %>
-  Title: <%= form.text_field :title, required: true %><br>
-  Tagline: <%= form.text_field :tagline %><br>
-  Summary: <%= form.text_area :summary %><br>
-  Genre: <%= form.select(:genre, options_for_select(Script::Genres)) %><br>
-  <%= form.file_field :pdf %>
-  <%= form.submit %>
-<% end %>
+<div class='form'>
+  <%= form_for @script, url: scripts_create_path, html: { multipart: true } do |form| %>
+    <div class='field'>
+      Title: <%= form.text_field :title, required: true %>
+    </div>
+    <div class='field'>
+      Tagline: <%= form.text_field :tagline %>
+    </div>
+    <div class='field'>
+      Summary: <%= form.text_area :summary %>
+    </div>
+    <div class='field'>  
+      Genre: <%= form.select(:genre, options_for_select(Script::Genres)) %>
+    </div>
+    <div class='field'>
+      <%= form.file_field :pdf %>
+    </div>
+    <div class='actions'>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

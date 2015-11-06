@@ -1,8 +1,18 @@
 <h1>Edit Script Details</h1>
 
-<%= form_for @script, url: script_path(@script), html: { multipart: true } do |form| %>
-  Title: <%= form.text_field :title, required: true %><br>
-  Tagline: <%= form.text_field :tagline %><br>
-  Summary: <%= form.text_area :summary %><br>
-  <%= form.submit %>
-<% end %>
+<div class='form'>
+  <%= form_for @script, url: script_path(@script), html: { multipart: true } do |form| %>
+    <div class='field'>
+      Title: <%= form.text_field :title, required: true %>
+    </div>
+    <div class='field'>
+      Tagline: <%= form.text_field :tagline %>
+    </div>
+    <div class='field'>
+      Summary: <%= form.text_area :summary %>
+    </div>
+    <div class='actions'>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

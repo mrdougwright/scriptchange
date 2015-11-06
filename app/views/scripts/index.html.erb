@@ -1,8 +1,7 @@
 <h1 class='center'>Scripts</h1>
 
 <% if @myscripts.blank? %>
-  <h3>Upload a Script!</3>
-  <%= link_to 'Upload my Script', new_script_path %>
+  <h3><%= link_to 'Upload a Script!', new_script_path %></h3>
 <% else %>
   <%= render 'scripts', scripts: @myscripts, header: 'Uploaded Scripts' %>
 <% end %>
