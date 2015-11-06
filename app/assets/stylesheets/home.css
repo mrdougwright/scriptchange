@@ -7,4 +7,32 @@ h1.home-title {
   padding: 3px 6px;
   background: #fffea1;
   content: attr(data-title); 
+  position: absolute;
+}
+
+.summary {
+  margin: 280px auto 480px;
+  width: 550px;
+}
+
+.signup {
+  margin: 0 auto 100px;
+}
+
+.holes {
+  height: 1300px;
+  position: absolute;
+  left: 0px;
+  top: 60px;
+}
+.hole {
+  margin: 50px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: 2px solid #635E5E;
+  background-color: gray;
+}
+.middle-hole {
+  margin: 500px 50px;
 }
