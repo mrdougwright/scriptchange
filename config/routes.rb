@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :ratings
   end
   
-  post "scripts/create"
 
   get "authors/:id" => "users#show", as: :authors
+  post "countview" => "countviews#update", as: :countview
 
   resources :stars
 
