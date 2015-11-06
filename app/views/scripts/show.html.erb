@@ -20,13 +20,10 @@
   </p>
   <p><%= link_to "Delete Script", script_path(@script), method: :delete if current_script_author?(@script) %></p>
 
-  <div class='form'>
-    <%= form_for @rating do |form| %>
-      <%= form.hidden_field :script_id, value: @script.id %>
-      <%= form.hidden_field :user_id, value: current_user.id %>
-      Stars: <%= form.select(:stars, options_for_select(Rating::Stars)) %><br>
-      <%= form.submit value: 'Save Rating' %>
-    <% end unless current_user.rated_script?(@script.id) %>
-  </div>
-  <p><%= link_to "Back to Scripts", scripts_path %></p>
+  <% if @user_rating %>
+    <%= render 'edit_rating_form' %>
+  <% else %>
+    <%= render 'new_rating_form' %>
+  <% end %>
+
 </div>

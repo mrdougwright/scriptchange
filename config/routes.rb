@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   root to: "scripts#index"
   devise_for :users
 
-  resources :scripts
+  resources :scripts do
+    resources :ratings
+  end
+  
   post "scripts/create"
 
+  get "authors/:id" => "users#show", as: :authors
+
   resources :stars
-  resources :ratings
 
 
   # The priority is based upon order of creation: first created -> highest priority.

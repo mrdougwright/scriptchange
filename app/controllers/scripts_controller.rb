@@ -16,6 +16,7 @@ class ScriptsController < ApplicationController
 
   def show
     @rating = Rating.new
+    @user_rating = Rating.where(user_id: current_user.id, script_id: @script.id).first
     @script.count_view unless current_user.scripts.include? @script
   end
 

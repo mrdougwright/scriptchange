@@ -17,8 +17,8 @@
         <tr>
           <td><%= link_to script.title, script %></td>
           <td>
-            <% script.authors.pluck(:name).each do |name| %>
-              <%= name %>
+            <% script.authors.each do |author| %>
+              <%= link_to author.name, authors_path(id: author.user_id) %>
             <% end %>
           </td>
           <td><%= Format::Date.simple(script.created_at) %></td>

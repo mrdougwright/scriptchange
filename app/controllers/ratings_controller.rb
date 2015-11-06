@@ -12,6 +12,12 @@ class RatingsController < ApplicationController
     end
   end
 
+  def update
+    @rating = Rating.find(params[:id])
+    @rating.update!(ratings_params)
+    redirect_to @rating.script, notice: 'Rating updated'
+  end
+
 private
 
   def ratings_params

@@ -14,7 +14,4 @@ class User < ActiveRecord::Base
     Star.where(user_id: self.id, script_id: script_id).any?
   end
 
-  def rated_script?(script_id)
-    Rating.where(user_id: self.id, script_id: script_id).any?
-  end
 end
