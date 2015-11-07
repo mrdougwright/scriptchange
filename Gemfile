@@ -40,6 +40,8 @@ gem 'devise'
 
 # For pdf attachment
 gem "paperclip", "~> 4.3"
+# AWS SDK - file uploads
+gem 'aws-sdk'
 
 
 group :development, :test do
