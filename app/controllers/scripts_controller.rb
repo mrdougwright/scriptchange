@@ -21,6 +21,10 @@ class ScriptsController < ApplicationController
 
   def create
     @script = CreateScript.with_user(current_user, pdf_params)
+    s3o = CreateS3Object.with_file(params[:script][:file].original_filename, params[:script][:file].tempfile)
+
+    @script.file_url = s3o.public_url
+    @script.pdf_file_name = s3o.key
     @script.save ? redirect_to(@script) : render(:new)
   end
 

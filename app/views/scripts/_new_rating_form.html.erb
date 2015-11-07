@@ -3,6 +3,6 @@
     <%= form.hidden_field :script_id, value: @script.id %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     Stars: <%= form.select(:stars, options_for_select(Rating::Stars)) %><br>
-    <%= form.submit value: 'Save Rating' %>
+    <%= form.submit 'Save Rating', data: { disable_with: "One moment..." } %>
   <% end %>
 </div>

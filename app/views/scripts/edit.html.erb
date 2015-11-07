@@ -12,7 +12,7 @@
       Summary: <%= form.text_area :summary %>
     </div>
     <div class='actions'>
-      <%= form.submit %>
+      <%= form.submit data: { disable_with: "One moment..." } %>
     </div>
   <% end %>
 </div>

@@ -13,10 +13,10 @@
       Genre: <%= form.select(:genre, options_for_select(Script::Genres)) %>
     </div>
     <div class='field'>
-      <%= form.file_field :pdf %>
+      <%= form.file_field :file %>
     </div>
     <div class='actions'>
-      <%= form.submit %>
+      <%= form.submit data: { disable_with: "One moment..." } %>
     </div>
   <% end %>
 </div>

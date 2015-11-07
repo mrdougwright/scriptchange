@@ -38,9 +38,7 @@ gem 'rails_12factor', group: :production
 # added for user login/signin
 gem 'devise'
 
-# For pdf attachment
-gem "paperclip", "~> 4.3"
-# AWS SDK - file uploads
+# AWS SDK - script uploads
 gem 'aws-sdk'
 
 

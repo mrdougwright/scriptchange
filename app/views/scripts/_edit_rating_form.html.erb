@@ -2,6 +2,6 @@
   <%= form_for @user_rating, url: script_rating_path(id: @user_rating.id, script_id: @user_rating.script_id), html: { multipart: true } do |form| %>
 
     Stars: <%= form.select(:stars, options_for_select(Rating::Stars, @user_rating.stars)) %><br>
-    <%= form.submit value: 'Update Rating' %>
+    <%= form.submit 'Update Rating', data: { disable_with: "One moment..." } %>
   <% end %>
 </div>
