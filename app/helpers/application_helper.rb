@@ -10,4 +10,8 @@ module ApplicationHelper
   def current_script_author?(script)
     current_user && current_user.scripts.include?(script)
   end
+
+  def pretty_errors(obj)
+    obj.errors && obj.errors.full_messages.join('<br>').html_safe
+  end
 end

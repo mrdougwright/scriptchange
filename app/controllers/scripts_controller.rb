@@ -21,11 +21,14 @@ class ScriptsController < ApplicationController
 
   def create
     @script = CreateScript.with_user(current_user, pdf_params)
-    s3o = CreateS3Object.with_file(params[:script][:file].original_filename, params[:script][:file].tempfile)
-
-    @script.file_url = s3o.public_url
-    @script.pdf_file_name = s3o.key
-    @script.save ? redirect_to(@script) : render(:new)
+    if @script.errors.blank?
+      s3o = CreateAwsUpload.with_file(params[:script][:file].original_filename, params[:script][:file].tempfile)
+      @script.file_url = s3o.public_url
+      @script.pdf_file_name = s3o.key
+      redirect_to(@script) if @script.save
+    else
+      redirect_to(:back, alert: pretty_errors(@script) )
+    end
   end
 
   def new
@@ -46,7 +49,7 @@ class ScriptsController < ApplicationController
 private
 
   def pdf_params
-    params.require(:script).permit(:pdf, :title, :tagline, :summary, :genre)
+    params.require(:script).permit(:file, :title, :tagline, :summary, :genre)
   end
 
   def retrieve_script

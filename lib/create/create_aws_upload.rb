@@ -1,4 +1,4 @@
-module CreateS3Object
+module CreateAwsUpload
   def self.with_file(filename, tempfile)
     obj = S3_BUCKET.object(filename)
     obj.upload_file(tempfile)
