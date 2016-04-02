@@ -34,12 +34,11 @@ ActiveRecord::Schema.define(version: 20151107220055) do
     t.string   "title"
     t.text     "tagline"
     t.text     "summary"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "pdf_file_name"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "slug"
     t.string   "genre"
-    t.integer  "views",         default: 0
+    t.integer  "views",      default: 0
     t.string   "file_url"
   end
 
