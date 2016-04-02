@@ -1,9 +1,11 @@
 class AddAttachmentPdfToScripts < ActiveRecord::Migration
   def self.up
-    add_attachment :scripts, :pdf
+    # add_attachment :scripts, :pdf
   end
 
   def self.down
-    remove_attachment :scripts, :pdf
+    # remove_attachment :scripts, :pdf
   end
 end
+
+#Paperclip gem added then later removed.

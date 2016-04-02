@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    taglines ||= Taglines.to_a
-    @tagline ||= taglines.sample
+    taglines ||= YAML.load_file "lib/assets/taglines.yml"
+    @tagline = taglines.to_a.sample
   end
 
 end
