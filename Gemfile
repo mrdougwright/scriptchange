@@ -42,6 +42,8 @@ gem 'devise'
 # AWS SDK - script uploads
 gem 'aws-sdk'
 
+gem 'sidekiq'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
